@@ -27,7 +27,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println(request.getMethod() + " " + request.getLocalAddr() + " " + request.getRemoteAddr() + " " + request.getLocale() + " " + request.getParameterNames());
+        log(request.getMethod() + " " + request.getLocalAddr() + " " + request.getRemoteAddr() + " " + request.getLocale() + " " + request.getParameterNames());
         response.setContentType("text/html");
         key = request.getParameter("key");
         value = Integer.parseInt(request.getParameter("value"));
