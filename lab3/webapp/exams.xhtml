@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+
+
+<h:head>
+    <title>#{exam.page}</title>
+    <link rel="stylesheet" type="text/css" href="css/primeflex.min.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <div class="card">
+            <div class="p-field p-col-12 p-md-3">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="language" value="#{exam.locale}"/>
+                    <h:selectOneMenu id="language" value="#{user.locale}" onchange="submit()"
+                                     valueChangeListener="#{user.localeChanged}">
+                        <f:selectItems value="#{user.countries}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </div>
+        </div>
+    </h:form>
+    <h:form>
+        <h:commandButton action="main" value="#{main.exams}"/>
+        <h:commandButton action="students" value="#{main.students}"/>
+    </h:form>
+    <h:form>
+
+        <div class="card">
+            <h3>#{exam.title_main}</h3>
+            <div class="p-field p-grid">
+                <p:outputLabel for="exam_name" styleClass="p-col-align-start" style="width:150px"
+                               value="#{exam.title}"/>
+                <div class="p-col">
+                    <p:inputText id="exam_name" required="true" value="#{examBean.name}"
+                                 requiredMessage="#{exam.requiredTitle}"/>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <p:outputLabel for="duration" styleClass="p-col-align-start" style="width:150px"
+                               value="#{exam.duration}"/>
+                <div class="p-col">
+                    <p:inputText type="number" id="duration" required="true" value="#{examBean.duration}"
+                                 requiredMessage="#{exam.requiredDuration}"/>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <p:outputLabel for="date" styleClass="p-col-align-start" style="width:150px" value="#{exam.date}"/>
+                <div class="p-col">
+                    <p:inputText type="time" id="date" required="true" value="#{examBean.starting_time}"
+                                 requiredMessage="#{exam.requiredDate}"/>
+                </div>
+            </div>
+            <h:commandButton value="Insert" action="#{examBean.addInDB(examBean)}"/>
+        </div>
+    </h:form>
+</h:body>
+
+</html>
