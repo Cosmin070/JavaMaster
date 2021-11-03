@@ -17,37 +17,28 @@
 <h:head>
 </h:head>
 
-<!--<h:body>-->
-<!--    <ui:composition template="/templates/dataview.xhtml">-->
-<!--        <ui:define name="dataview">-->
-<!--            <p:column headerText="#{stud.id}">-->
-<!--                <h:outputText value="#{temp.id}"/>-->
-<!--            </p:column>-->
-<!--        </ui:define>-->
-<!--    </ui:composition>-->
-<!--</h:body>-->
-
 <ui:composition template="templates/dataview.xhtml">
-    <ui:param name="function" value="#{studentBean.getStudentList()}"/>
-    <ui:define name="dataview" >
-        <p:column headerText="#{stud.id}">
-            <h:outputText value="#{temp.id}"/>
-        </p:column>
+    <ui:define name="dataview">
+        <p:dataTable var="temp" value="#{studentBean.getStudentList()}">
+            <p:column headerText="#{stud.id}">
+                <h:outputText value="#{temp.id}"/>
+            </p:column>
 
-        <p:column headerText="#{stud.first_name}"
-        >
-            <h:outputText value="#{temp.firstName}"/>
-        </p:column>
+            <p:column headerText="#{stud.first_name}"
+            >
+                <h:outputText value="#{temp.firstName}"/>
+            </p:column>
 
-        <p:column headerText="#{stud.last_name}"
-        >
-            <h:outputText value="#{temp.lastName}"/>
-        </p:column>
+            <p:column headerText="#{stud.last_name}"
+            >
+                <h:outputText value="#{temp.lastName}"/>
+            </p:column>
 
-        <p:column headerText="#{stud.year}"
-        >
-            <h:outputText value="#{temp.year}"/>
-        </p:column>
+            <p:column headerText="#{stud.year}"
+            >
+                <h:outputText value="#{temp.year}"/>
+            </p:column>
+        </p:dataTable>
     </ui:define>
 </ui:composition>
 

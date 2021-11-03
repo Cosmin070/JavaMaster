@@ -17,31 +17,32 @@
 <h:head/>
 
 <ui:composition template="templates/dataview.xhtml">
-    <ui:param name="function" value="#{examBean.getExams()}"/>
     <ui:define name="dataview">
-        <p:column headerText="#{exam.id}">
-            <h:outputText value="#{temp.id}"/>
-        </p:column>
+        <p:dataTable var="temp" value="#{examBean.getExams()}">
+            <p:column headerText="#{exam.id}">
+                <h:outputText value="#{temp.id}"/>
+            </p:column>
 
-        <p:column headerText="#{exam.title}"
-        >
-            <h:outputText value="#{temp.name}"/>
-        </p:column>
+            <p:column headerText="#{exam.title}"
+            >
+                <h:outputText value="#{temp.name}"/>
+            </p:column>
 
-        <p:column headerText="#{exam.hour}"
-        >
-            <h:outputText value="#{temp.hour}"/>
-        </p:column>
+            <p:column headerText="#{exam.hour}"
+            >
+                <h:outputText value="#{temp.hour}"/>
+            </p:column>
 
-        <p:column headerText="#{exam.minutes}"
-        >
-            <h:outputText value="#{temp.minutes}"/>
-        </p:column>
+            <p:column headerText="#{exam.minutes}"
+            >
+                <h:outputText value="#{temp.minutes}"/>
+            </p:column>
 
-        <p:column headerText="#{exam.duration}"
-        >
-            <h:outputText value="#{temp.duration}"/>
-        </p:column>
+            <p:column headerText="#{exam.duration}"
+            >
+                <h:outputText value="#{temp.duration}"/>
+            </p:column>
+        </p:dataTable>
     </ui:define>
 </ui:composition>
 

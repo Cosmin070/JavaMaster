@@ -18,26 +18,27 @@
 
 
 <ui:composition template="templates/dataview.xhtml">
-    <ui:param name="function" value="#{allocationBean.getAllocation()}"/>
     <ui:define name="dataview">
-        <p:column headerText="#{stud.id}">
-            <h:outputText value="#{temp.id}"/>
-        </p:column>
+        <p:dataTable var="temp" value="#{allocationBean.getAllocation()}">
+            <p:column headerText="#{stud.id}">
+                <h:outputText value="#{temp.id}"/>
+            </p:column>
 
-        <p:column headerText="#{stud.first_name}"
-        >
-            <h:outputText value="#{temp.firstName}"/>
-        </p:column>
+            <p:column headerText="#{stud.first_name}"
+            >
+                <h:outputText value="#{temp.firstName}"/>
+            </p:column>
 
-        <p:column headerText="#{stud.last_name}"
-        >
-            <h:outputText value="#{temp.lastName}"/>
-        </p:column>
+            <p:column headerText="#{stud.last_name}"
+            >
+                <h:outputText value="#{temp.lastName}"/>
+            </p:column>
 
-        <p:column headerText="#{exam.title}"
-        >
-            <h:outputText value="#{temp.exam}"/>
-        </p:column>
+            <p:column headerText="#{exam.title}"
+            >
+                <h:outputText value="#{temp.exam}"/>
+            </p:column>
+        </p:dataTable>
     </ui:define>
 </ui:composition>
 
