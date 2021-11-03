@@ -6,35 +6,35 @@ import jakarta.faces.bean.ManagedBean;
 public class Exam {
     private int id;
     private String name;
-    private int hour;
-    private int minutes;
-    private int duration;
+    private Integer hour = 0;
+    private Integer minutes = 0;
+    private Integer duration = 0;
 
     public Exam() {
 
     }
 
-    public int getHour() {
+    public Integer getHour() {
         return hour;
     }
 
-    public void setHour(int hour) {
+    public void setHour(Integer hour) {
         this.hour = hour;
     }
 
-    public int getMinutes() {
+    public Integer getMinutes() {
         return minutes;
     }
 
-    public void setMinutes(int minutes) {
+    public void setMinutes(Integer minutes) {
         this.minutes = minutes;
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 

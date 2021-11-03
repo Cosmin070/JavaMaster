@@ -7,7 +7,7 @@ public class Student {
     private int id;
     private String firstName;
     private String lastName;
-    private int year;
+    private Integer year = 0;
     private String exam;
 
     public Student(String firstName, String lastName, int year, String exam) {
@@ -36,11 +36,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
