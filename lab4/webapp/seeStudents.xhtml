@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: User
+  Date: 11/2/2021
+  Time: 4:45 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<!--<h:body>-->
+<!--    <ui:composition template="/templates/dataview.xhtml">-->
+<!--        <ui:define name="dataview">-->
+<!--            <p:column headerText="#{stud.id}">-->
+<!--                <h:outputText value="#{temp.id}"/>-->
+<!--            </p:column>-->
+<!--        </ui:define>-->
+<!--    </ui:composition>-->
+<!--</h:body>-->
+
+<ui:composition template="templates/dataview.xhtml">
+    <ui:param name="function" value="#{studentBean.getStudentList()}"/>
+    <ui:define name="dataview" >
+        <p:column headerText="#{stud.id}">
+            <h:outputText value="#{temp.id}"/>
+        </p:column>
+
+        <p:column headerText="#{stud.first_name}"
+        >
+            <h:outputText value="#{temp.firstName}"/>
+        </p:column>
+
+        <p:column headerText="#{stud.last_name}"
+        >
+            <h:outputText value="#{temp.lastName}"/>
+        </p:column>
+
+        <p:column headerText="#{stud.year}"
+        >
+            <h:outputText value="#{temp.year}"/>
+        </p:column>
+    </ui:define>
+</ui:composition>
+
+</html>

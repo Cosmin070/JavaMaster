@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+    <ui:composition>
+        <h:form>
+            <div class="card">
+                <div class="p-field p-col-12 p-md-3">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel for="language" value="#{exam.locale}"/>
+                        <h:selectOneMenu id="language" value="#{user.locale}" onchange="submit()"
+                                         valueChangeListener="#{user.localeChanged}">
+                            <f:selectItems value="#{user.countries}"/>
+                        </h:selectOneMenu>
+                    </h:panelGrid>
+                </div>
+            </div>
+        </h:form>
+        <h:outputText id="poll1" value="Next Exam: #{counter.getExamName()}"/>
+        <p:poll interval="1" listener="#{counter.increment}" update="poll1"/>
+        <h:outputText id="poll2" value="Student counter: #{counter.getStudentCount()}"/>
+        <p:poll interval="1" update="poll2"/>
+        <div>
+            <ui:insert name="header">
+                <ui:include src="/templates/menuBar.xhtml"/>
+            </ui:insert>
+        </div>
+    </ui:composition>
+</h:body>
+
+</html>

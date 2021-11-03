@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+>
+
+<h:head>
+    <title>#{stud.page}</title>
+    <link rel="stylesheet" type="text/css" href="css/primeflex.min.css"/>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/dataedit.xhtml">
+        <ui:define name="edit">
+            <p:outputLabel for="stud_first_name" styleClass="p-col-align-start" style="width:150px"
+                           value="#{stud.first_name}"/>
+            <h:inputText id="stud_first_name" required="true" value="#{_stud.firstName}"
+                         requiredMessage="#{stud.requiredFirstName}"/>
+
+            <p:outputLabel for="stud_last_name" styleClass="p-col-align-start" style="width:150px"
+                           value="#{stud.last_name}"/>
+            <h:inputText id="stud_last_name" required="true" value="#{_stud.lastName}"
+                         requiredMessage="#{stud.requiredLastName}"/>
+
+            <p:outputLabel for="year" styleClass="p-col-align-start" style="width:150px"
+                           value="#{stud.year}"/>
+            <p:inputNumber type="number" id="year" minValue="0" maxValue="4" required="true" value="#{_stud.year}"
+                           requiredMessage="#{stud.requiredYear}"/>
+
+            <p:outputLabel for="ex" styleClass="p-col-align-start" style="width:150px"
+                           value="#{stud.exam}"/>
+            <h:selectOneMenu id="ex" value="#{_stud.exam}">
+                <f:selectItems value="#{examBean.getExamNames()}"/>
+            </h:selectOneMenu>
+            <h:commandButton value="#{stud.submit}" action="#{studentBean.addInDB(_stud)}"/>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
