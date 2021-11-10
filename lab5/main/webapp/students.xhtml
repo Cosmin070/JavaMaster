@@ -1,0 +1,74 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"-->
+<!--        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:h="http://java.sun.com/jsf/html"-->
+<!--      xmlns:p="http://primefaces.org/ui"-->
+<!--      xmlns:f="http://java.sun.com/jsf/core"-->
+<!--&gt;-->
+<!--<h:head>-->
+<!--    <title>#{stud.page}</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="css/primeflex.min.css"/>-->
+<!--</h:head>-->
+
+<!--<h:body>-->
+<!--    <h:form>-->
+<!--        <div class="card">-->
+<!--            <div class="p-field p-col-12 p-md-3">-->
+<!--                <h:panelGrid columns="2" cellpadding="5">-->
+<!--                    <p:outputLabel for="language" value="#{stud.locale}"/>-->
+<!--                    <h:selectOneMenu id="language" value="#{user.locale}" onchange="submit()"-->
+<!--                                     valueChangeListener="#{user.localeChanged}">-->
+<!--                        <f:selectItems value="#{user.countries}"/>-->
+<!--                    </h:selectOneMenu>-->
+<!--                </h:panelGrid>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </h:form>-->
+<!--    <h:form>-->
+<!--        <h:commandButton action="createExams" value="#{stud.exams}"/>-->
+<!--        <h:commandButton action="main" value="#{stud.main}"/>-->
+<!--    </h:form>-->
+<!--    <h:form>-->
+<!--        <div class="card">-->
+<!--            <h3>#{stud.title_main}</h3>-->
+<!--            <div class="p-field p-grid">-->
+<!--                <p:outputLabel for="stud_first" styleClass="p-col-align-start" style="width:150px"-->
+<!--                               value="#{stud.first_name}"/>-->
+<!--                <div class="p-col">-->
+<!--                    <p:inputText id="stud_first" required="true" value="#{studentBean.firstName}"-->
+<!--                                 requiredMessage="#{stud.requiredFirstName}"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="p-field p-grid">-->
+<!--                <p:outputLabel for="stud_last" styleClass="p-col-align-start" style="width:150px"-->
+<!--                               value="#{stud.last_name}"/>-->
+<!--                <div class="p-col">-->
+<!--                    <p:inputText id="stud_last" required="true" value="#{studentBean.lastName}"-->
+<!--                                 requiredMessage="#{stud.requiredLastName}"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="p-field p-grid">-->
+<!--                <p:outputLabel for="year" styleClass="p-col-align-start" style="width:150px"-->
+<!--                               value="#{stud.year}"/>-->
+<!--                <div class="p-col">-->
+<!--                    <p:inputText type="number" id="year" required="true" value="#{stud.year}"-->
+<!--                                 requiredMessage="#{stud.requiredYear}"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="p-field p-grid">-->
+<!--                <h:panelGrid columns="2" cellpadding="5">-->
+<!--                    <p:outputLabel for="exam" styleClass="p-col-align-start" style="width:150px"-->
+<!--                                   value="#{stud.exam}"/>-->
+<!--                    <div class="p-col">-->
+<!--                        <h:selectOneMenu id="exam" value="#{stud.exam}" onchange="submit()">-->
+<!--                            <f:selectItems value="#{examBean.getExamNames()}"/>-->
+<!--                        </h:selectOneMenu>-->
+<!--                    </div>-->
+<!--                </h:panelGrid>-->
+<!--            </div>-->
+<!--            <h:commandButton value="Insert" action="#{examBean.addInDB(examBean)}"/>-->
+<!--        </div>-->
+<!--    </h:form>-->
+<!--</h:body>-->
+<!--</html>-->

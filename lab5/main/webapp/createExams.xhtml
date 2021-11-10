@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+
+
+<h:head>
+    <title>#{exam.page}</title>
+    <link rel="stylesheet" type="text/css" href="css/primeflex.min.css"/>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/dataedit.xhtml">
+        <ui:define name="edit">
+            <p:outputLabel for="exam_name" styleClass="p-col-align-start" style="width:150px" value="#{exam.title}"/>
+            <h:inputText id="exam_name" required="true" value="#{_exam.name}"
+                         requiredMessage="#{exam.requiredTitle}"/>
+
+            <p:outputLabel for="duration" styleClass="p-col-align-start" style="width:150px"
+                           value="#{exam.duration}"/>
+            <p:inputNumber type="number" id="duration" required="true" value="#{_exam.duration}"
+                           requiredMessage="#{exam.requiredDuration}"/>
+
+            <p:outputLabel for="hour" styleClass="p-col-align-start" style="width:150px"
+                           value="#{exam.hour}"/>
+            <p:inputNumber type="number" id="hour" required="true" value="#{_exam.hour}"
+                           requiredMessage="#{exam.requiredHour}"/>
+
+            <p:outputLabel for="minutes" styleClass="p-col-align-start" style="width:150px"
+                           value="#{exam.minutes}"/>
+            <p:inputNumber type="number" id="minutes" required="true" value="#{_exam.minutes}" minValue="0"
+                           maxValue="59"
+                           requiredMessage="#{exam.requiredMinutes}"/>
+            <h:commandButton value="#{exam.submit}" action="#{examBean.addInDB(_exam)}"/>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

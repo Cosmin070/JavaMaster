@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: User
+  Date: 11/2/2021
+  Time: 5:16 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head/>
+
+<ui:composition template="templates/dataview.xhtml">
+    <ui:define name="dataview">
+        <p:dataTable var="temp" value="#{examBean.getExams()}">
+            <p:column headerText="#{exam.id}">
+                <h:outputText value="#{temp.id}"/>
+            </p:column>
+
+            <p:column headerText="#{exam.title}"
+            >
+                <h:outputText value="#{temp.name}"/>
+            </p:column>
+
+            <p:column headerText="#{exam.hour}"
+            >
+                <h:outputText value="#{temp.hour}"/>
+            </p:column>
+
+            <p:column headerText="#{exam.minutes}"
+            >
+                <h:outputText value="#{temp.minutes}"/>
+            </p:column>
+
+            <p:column headerText="#{exam.duration}"
+            >
+                <h:outputText value="#{temp.duration}"/>
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+</ui:composition>
+
+</html>

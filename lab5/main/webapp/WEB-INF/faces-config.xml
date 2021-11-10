@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="3.0" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                                  https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd">
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>fr</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>exams</base-name>
+            <var>exam</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>students</base-name>
+            <var>stud</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>main</base-name>
+            <var>main</var>
+        </resource-bundle>
+    </application>
+    <navigation-rule>
+        <from-view-id>/main.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{navigationController.CreateExam}</from-action>
+            <to-view-id>/createExams.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationController.CreateStudent}</from-action>
+            <to-view-id>/createExams.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

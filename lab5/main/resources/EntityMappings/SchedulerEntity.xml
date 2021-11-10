@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.lab3.DTOs.SchedulerEntity">
+        <table name="scheduler" schema="public" catalog="java"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <many-to-one name="examsByExamId" optional="true" target-entity="com.lab3.DTOs.ExamsEntity">
+                <join-column name="exam_id" referenced-column-name="id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>
