@@ -1,6 +1,5 @@
 package com.lab3.Database;
 
-import com.lab3.DTOs.ExamsEntity;
 import com.lab3.DTOs.StudentsEntity;
 
 import javax.persistence.EntityManager;

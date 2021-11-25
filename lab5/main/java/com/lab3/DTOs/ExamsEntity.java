@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "exams", schema = "public", catalog = "java")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+        name = "discriminator", discriminatorType = DiscriminatorType.STRING
+)
 @NamedQueries({
         @NamedQuery(name = "ExamsEntity.getAll", query = "select e from ExamsEntity e order by e.id"),
         @NamedQuery(name = "ExamsEntity.getExamId", query = "select e from ExamsEntity e where e.name=?1"),
@@ -18,11 +22,11 @@ import java.util.Objects;
 
 @ManagedBean(name = "_exam")
 public class ExamsEntity {
-    private int id;
-    private String name;
-    private Integer hour = 0;
-    private Integer minutes = 0;
-    private Integer duration = 0;
+    int id;
+    String name;
+    Integer hour = 0;
+    Integer minutes = 0;
+    Integer duration = 0;
 
     @Id
     @Column(name = "id", nullable = false)

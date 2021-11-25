@@ -43,39 +43,5 @@
             <h:commandButton value="#{exam.submit}" action="#{examBean.addInDB(written)}"/>
         </ui:define>
     </ui:composition>
-
-    <ui:composition template="/templates/dataedit.xhtml">
-        <ui:define name="edit">
-            <p:outputLabel for="presentation_name" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.title}"/>
-            <h:inputText id="presentation_name" required="true" value="#{presentation.name}"
-                         requiredMessage="#{exam.requiredTitle}"/>
-
-            <p:outputLabel for="presentation_duration" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.duration}"/>
-            <p:inputNumber type="number" id="presentation_duration" required="true" value="#{presentation.duration}"
-                           requiredMessage="#{exam.requiredDuration}"/>
-
-            <p:outputLabel for="presentation_hour" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.hour}"/>
-            <p:inputNumber type="number" id="presentation_hour" required="true" value="#{presentation.hour}"
-                           requiredMessage="#{exam.requiredHour}"/>
-
-            <p:outputLabel for="presentation_minutes" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.minutes}"/>
-            <p:inputNumber type="number" id="presentation_minutes" required="true" value="#{presentation.minutes}"
-                           minValue="0"
-                           maxValue="59"
-                           requiredMessage="#{exam.requiredMinutes}"/>
-
-            <p:outputLabel for="presentation_slides" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.slides}"/>
-            <p:inputNumber type="number" id="presentation_slides" required="true" value="#{presentation.slidesCount}"
-                           minValue="0"
-                           maxValue="59"
-                           requiredMessage="#{exam.requiredMinutes}"/>
-            <h:commandButton value="#{exam.submit}" action="#{examBean.addInDB(presentation)}"/>
-        </ui:define>
-    </ui:composition>
 </h:body>
 </html>

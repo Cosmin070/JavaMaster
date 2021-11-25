@@ -5,6 +5,9 @@
     <persistence-unit name="JPA" transaction-type="RESOURCE_LOCAL">
         <non-jta-data-source>jdbc/java</non-jta-data-source>
         <class>com.lab3.DTOs.ExamsEntity</class>
+        <class>com.lab3.DTOs.PresentationEntity</class>
+        <class>com.lab3.DTOs.WrittenTestEntity</class>
+        <class>com.lab3.DTOs.StudentsEntity</class>
     </persistence-unit>
 
 </persistence>

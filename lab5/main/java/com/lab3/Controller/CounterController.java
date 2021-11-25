@@ -14,17 +14,16 @@ import java.util.List;
 @ManagedBean(name = "counter")
 @SessionScoped
 public class CounterController {
-    private final List<ExamsEntity> examList;
+    private List<String> examList;
     private int currentIndex;
 
     public CounterController() throws NamingException, SQLException {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JPA");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        examList = entityManager.createNamedQuery("ExamsEntity.getAll").getResultList();
+        refreshExams();
+
     }
 
     public String getExamName() {
-        return examList.get(currentIndex).getName();
+        return examList.get(currentIndex);
     }
 
 
@@ -38,5 +37,17 @@ public class CounterController {
 
     public void increment() {
         currentIndex = currentIndex + 1 == examList.size() ? 0 : currentIndex + 1;
+        if (currentIndex == 0) {
+            refreshExams();
+        }
+    }
+
+    private void refreshExams() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JPA");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        examList = entityManager.createNamedQuery("ExamsEntity.getExamNames").getResultList();
+        if (examList.size() == 0) {
+            examList.add("NO EXAMS");
+        }
     }
 }

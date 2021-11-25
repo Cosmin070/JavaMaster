@@ -32,4 +32,14 @@ public class ExamRepository {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+
+    public List getPresentations() {
+        Query query = entityManager.createNamedQuery("ExamsEntity.getExamsByType").setParameter(1, "written");
+        return query.getResultList();
+    }
+
+    public List getWrittenExams() {
+        Query query = entityManager.createNamedQuery("ExamsEntity.getExamsByType").setParameter(1, "presentation");
+        return query.getResultList();
+    }
 }

@@ -17,35 +17,6 @@
 <h:body>
     <ui:composition template="/templates/dataedit.xhtml">
         <ui:define name="edit">
-            <p:outputLabel for="written_test" styleClass="p-col-align-start" style="width:150px" value="#{exam.title}"/>
-            <h:inputText id="written_test" required="true" value="#{written.name}"
-                         requiredMessage="#{exam.requiredTitle}"/>
-
-            <p:outputLabel for="written_duration" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.duration}"/>
-            <p:inputNumber type="number" id="written_duration" required="true" value="#{written.duration}"
-                           requiredMessage="#{exam.requiredDuration}"/>
-
-            <p:outputLabel for="written_hour" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.hour}"/>
-            <p:inputNumber type="number" id="written_hour" required="true" value="#{written.hour}"
-                           requiredMessage="#{exam.requiredHour}"/>
-
-            <p:outputLabel for="written_minutes" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.minutes}"/>
-            <p:inputNumber type="number" id="written_minutes" required="true" value="#{written.minutes}" minValue="0"
-                           maxValue="59"
-                           requiredMessage="#{exam.requiredMinutes}"/>
-            <p:outputLabel for="written_resources" styleClass="p-col-align-start" style="width:150px"
-                           value="#{exam.resources}"/>
-            <h:inputText id="written_resources" required="true" value="#{written.resources}"
-                         requiredMessage="#{exam.requiredTitle}"/>
-            <h:commandButton value="#{exam.submit}" action="#{examBean.addInDB(written)}"/>
-        </ui:define>
-    </ui:composition>
-
-    <ui:composition template="/templates/dataedit.xhtml">
-        <ui:define name="edit">
             <p:outputLabel for="presentation_name" styleClass="p-col-align-start" style="width:150px"
                            value="#{exam.title}"/>
             <h:inputText id="presentation_name" required="true" value="#{presentation.name}"
