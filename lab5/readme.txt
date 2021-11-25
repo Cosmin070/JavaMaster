@@ -1,3 +1,4 @@
  - added jpa support
  - modified javafaces accordingly
  - did not do any unit test, difficulty with creating an entitymanager
+ - added inheritance for exam class
