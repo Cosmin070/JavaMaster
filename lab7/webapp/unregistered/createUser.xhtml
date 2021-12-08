@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:body>
+    <ui:composition template="page.xhtml">
+        <ui:composition template="/templates/dataedit.xhtml">
+            <ui:define name="edit">
+                <p:outputLabel value="Only available during 09:00 - 12:00"/>
+                <p:outputLabel for="username" value="Username:"/>
+                <h:inputText id="username" required="true" value="#{userBean.username}"
+                             requiredMessage="Username is required."/>
+
+                <p:outputLabel for="password" value="Password:"/>
+                <h:inputSecret id="password" required="true" value="#{userBean.password}"
+                               requiredMessage="Password is required."/>
+
+                <p:outputLabel for="role" value="Role:"/>
+                <h:selectOneMenu id="role" value="#{userBean.role}">
+                    <f:selectItems value="#{userBean.getRoles()}"/>
+                </h:selectOneMenu>
+                <h:commandButton value="Submit" action="#{userRepo.insertUser(userBean)}"/>
+            </ui:define>
+        </ui:composition>
+    </ui:composition>
+</h:body>
+
+</html>
