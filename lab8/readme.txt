@@ -1,0 +1,2 @@
+- first point done
+- second point filter does not reset cache
