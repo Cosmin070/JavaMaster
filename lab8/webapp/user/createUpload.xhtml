@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:body>
+    <ui:composition template="page.xhtml">
+        <ui:composition template="/templates/dataedit.xhtml">
+            <ui:define name="edit">
+                <p:outputLabel value="Only available during 09:00 - 12:00"/>
+                <p:outputLabel for="document" value="Document:"/>
+                <h:inputText id="document" required="true" value="#{uploadBean.document}"
+                             requiredMessage="Document is required."/>
+                <h:commandButton value="Submit" action="#{uploadRepo.insertUpload(uploadBean)}"/>
+            </ui:define>
+        </ui:composition>
+    </ui:composition>
+</h:body>
+
+</html>
