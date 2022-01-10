@@ -1,0 +1,4 @@
+ - rewritten repo classes with interfaces
+ - singleton tracker class of available resources is triggered if the insert was successful
+ - stateful class that inserts the assisgnments triggers the update of the singleton class
+ - another bean is responsible for checking what resources are available getting the assigned resources from the tracker class
