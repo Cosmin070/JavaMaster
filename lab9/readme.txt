@@ -1,0 +1,2 @@
+- added jdbc realm security features for admin and user
+- secured services and features
