@@ -1,0 +1,3 @@
+- changed upload to a CRUD REST resource as a microservice in OpenLiberty started from a template from Microprofile
+- used fallback, timeout, circuitbreaker and bulkhead for the newly created microservice, see service-A
+- readiness and liveness checks done from the prebuilt microprofile template
