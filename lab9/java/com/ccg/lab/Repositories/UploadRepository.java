@@ -5,6 +5,7 @@ import com.ccg.lab.Entities.Upload;
 import com.ccg.lab.Utils.CustomInterceptorBinding;
 import com.ccg.lab.Utils.TimeCheck;
 import com.ccg.lab.Utils.UIDGenerator;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
@@ -23,6 +24,7 @@ public class UploadRepository {
     protected EntityManager entityManager;
 
     @CustomInterceptorBinding
+    @RolesAllowed({"user", "admin"})
     public void insertUpload(UploadBean uploadBean) throws IOException {
         Upload upload = new Upload();
         FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -53,6 +55,7 @@ public class UploadRepository {
         }
     }
 
+    @RolesAllowed({"user","admin"})
     public List getUploads() {
         Query query = entityManager.createNamedQuery("Upload.getUploads");
         return query.getResultList();
